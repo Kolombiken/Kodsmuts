@@ -1,55 +1,53 @@
 <?php
-/* Welcome to Bones :)
-This is the core Bones file where most of the
+/* Welcome to kodsmuts :)
+This is the core kodsmuts file where most of the
 main functions & features reside. If you have
 any custom functions, it's best to put them
 in the functions.php file.
 
 Developed by: Eddie Machado
-URL: http://themble.com/bones/
+URL: http://themble.com/kodsmuts/
 */
 
 /*********************
-LAUNCH BONES
+LAUNCH kodsmuts
 Let's fire off all the functions
 and tools. I put it up here so it's
 right up top and clean.
 *********************/
 
 // we're firing all out initial functions at the start
-add_action('after_setup_theme','bones_ahoy', 15);
+add_action('after_setup_theme','kodsmuts_ahoy', 15);
 
-function bones_ahoy() {
+function kodsmuts_ahoy() {
 
     // launching operation cleanup
-    add_action('init', 'bones_head_cleanup');
+    add_action('init', 'kodsmuts_head_cleanup');
     // remove WP version from RSS
-    add_filter('the_generator', 'bones_rss_version');
+    add_filter('the_generator', 'kodsmuts_rss_version');
     // remove pesky injected css for recent comments widget
-    add_filter( 'wp_head', 'bones_remove_wp_widget_recent_comments_style', 1 );
+    add_filter( 'wp_head', 'kodsmuts_remove_wp_widget_recent_comments_style', 1 );
     // clean up comment styles in the head
-    add_action('wp_head', 'bones_remove_recent_comments_style', 1);
+    add_action('wp_head', 'kodsmuts_remove_recent_comments_style', 1);
     // clean up gallery output in wp
-    add_filter('gallery_style', 'bones_gallery_style');
+    add_filter('gallery_style', 'kodsmuts_gallery_style');
 
     // enqueue base scripts and styles
-    add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
-    // ie conditional wrapper
-    add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
+    add_action('wp_enqueue_scripts', 'kodsmuts_scripts_and_styles', 999);
 
     // launching this stuff after theme setup
-    add_action('after_setup_theme','bones_theme_support');
+    add_action('after_setup_theme','kodsmuts_theme_support');
     // adding sidebars to Wordpress (these are created in functions.php)
-    add_action( 'widgets_init', 'bones_register_sidebars' );
-    // adding the bones search form (created in functions.php)
-    add_filter( 'get_search_form', 'bones_wpsearch' );
+    add_action( 'widgets_init', 'kodsmuts_register_sidebars' );
+    // adding the kodsmuts search form (created in functions.php)
+    add_filter( 'get_search_form', 'kodsmuts_wpsearch' );
 
     // cleaning up random code around images
-    add_filter('the_content', 'bones_filter_ptags_on_images');
+    add_filter('the_content', 'kodsmuts_filter_ptags_on_images');
     // cleaning up excerpt
-    add_filter('excerpt_more', 'bones_excerpt_more');
+    add_filter('excerpt_more', 'kodsmuts_excerpt_more');
 
-} /* end bones ahoy */
+} /* end kodsmuts ahoy */
 
 /*********************
 WP_HEAD GOODNESS
@@ -59,7 +57,7 @@ removing all the junk we don't
 need.
 *********************/
 
-function bones_head_cleanup() {
+function kodsmuts_head_cleanup() {
 	// category feeds
 	// remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
@@ -79,31 +77,31 @@ function bones_head_cleanup() {
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
   // remove WP version from css
-  add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+  add_filter( 'style_loader_src', 'kodsmuts_remove_wp_ver_css_js', 9999 );
   // remove Wp version from scripts
-  add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+  add_filter( 'script_loader_src', 'kodsmuts_remove_wp_ver_css_js', 9999 );
 
-} /* end bones head cleanup */
+} /* end kodsmuts head cleanup */
 
 // remove WP version from RSS
-function bones_rss_version() { return ''; }
+function kodsmuts_rss_version() { return ''; }
 
 // remove WP version from scripts
-function bones_remove_wp_ver_css_js( $src ) {
+function kodsmuts_remove_wp_ver_css_js( $src ) {
     if ( strpos( $src, 'ver=' ) )
         $src = remove_query_arg( 'ver', $src );
     return $src;
 }
 
 // remove injected CSS for recent comments widget
-function bones_remove_wp_widget_recent_comments_style() {
+function kodsmuts_remove_wp_widget_recent_comments_style() {
    if ( has_filter('wp_head', 'wp_widget_recent_comments_style') ) {
       remove_filter('wp_head', 'wp_widget_recent_comments_style' );
    }
 }
 
 // remove injected CSS from recent comments widget
-function bones_remove_recent_comments_style() {
+function kodsmuts_remove_recent_comments_style() {
   global $wp_widget_factory;
   if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
     remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
@@ -111,7 +109,7 @@ function bones_remove_recent_comments_style() {
 }
 
 // remove injected CSS from gallery
-function bones_gallery_style($css) {
+function kodsmuts_gallery_style($css) {
   return preg_replace("!<style type='text/css'>(.*?)</style>!s", '', $css);
 }
 
@@ -121,17 +119,11 @@ SCRIPTS & ENQUEUEING
 *********************/
 
 // loading modernizr and jquery, and reply script
-function bones_scripts_and_styles() {
+function kodsmuts_scripts_and_styles() {
   if (!is_admin()) {
 
-    // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-
     // register main stylesheet
-    wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
-
-    // ie-only style sheet
-    wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
+    wp_register_style( 'kodsmuts-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -139,29 +131,22 @@ function bones_scripts_and_styles() {
     }
 
     //adding scripts file in the footer
-    wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'kodsmuts-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+
+    // html5shiv from https://github.com/aFarkas/html5shiv
+    wp_register_script( 'kodsmuts-html5shiv', get_stylesheet_directory_uri() . '/library/js/libs/html5shiv.min.js', array(), '3.6.2pre', false );
 
     // enqueue styles and scripts
-    wp_enqueue_script( 'bones-modernizr' );
-    wp_enqueue_style( 'bones-stylesheet' );
-    wp_enqueue_style('bones-ie-only');
+    wp_enqueue_style( 'kodsmuts-stylesheet' );
     /*
     I recommend using a plugin to call jQuery
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
     wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bones-js' );
+    wp_enqueue_script( 'kodsmuts-js' );
 
   }
-}
-
-// adding the conditional wrapper around ie stylesheet
-// source: http://code.garyjones.co.uk/ie-conditional-style-sheets-wordpress/
-function bones_ie_conditional( $tag, $handle ) {
-	if ( 'bones-ie-only' == $handle )
-		$tag = '<!--[if lt IE 9]>' . "\n" . $tag . '<![endif]-->' . "\n";
-	return $tag;
 }
 
 /*********************
@@ -169,7 +154,7 @@ THEME SUPPORT
 *********************/
 
 // Adding WP 3+ Functions & Theme Support
-function bones_theme_support() {
+function kodsmuts_theme_support() {
 
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support('post-thumbnails');
@@ -214,11 +199,11 @@ function bones_theme_support() {
 	// registering wp3+ menus
 	register_nav_menus(
 		array(
-			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
+			'main-nav' => __( 'The Main Menu', 'kodsmutstheme' ),   // main nav in header
+			'footer-links' => __( 'Footer Links', 'kodsmutstheme' ) // secondary nav in footer
 		)
 	);
-} /* end bones theme support */
+} /* end kodsmuts theme support */
 
 
 /*********************
@@ -226,7 +211,7 @@ MENUS & NAVIGATION
 *********************/
 
 // the main menu
-function bones_main_nav() {
+function kodsmuts_main_nav() {
 	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => false,                           // remove nav container
@@ -239,12 +224,12 @@ function bones_main_nav() {
         'link_before' => '',                            // before each link
         'link_after' => '',                             // after each link
         'depth' => 0,                                   // limit the depth of the nav
-    	'fallback_cb' => 'bones_main_nav_fallback'      // fallback function
+    	'fallback_cb' => 'kodsmuts_main_nav_fallback'      // fallback function
 	));
-} /* end bones main nav */
+} /* end kodsmuts main nav */
 
 // the footer menu (should you choose to use one)
-function bones_footer_links() {
+function kodsmuts_footer_links() {
 	// display the wp3 menu if available
     wp_nav_menu(array(
     	'container' => '',                              // remove nav container
@@ -257,12 +242,12 @@ function bones_footer_links() {
         'link_before' => '',                            // before each link
         'link_after' => '',                             // after each link
         'depth' => 0,                                   // limit the depth of the nav
-    	'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
+    	'fallback_cb' => 'kodsmuts_footer_links_fallback'  // fallback function
 	));
-} /* end bones footer link */
+} /* end kodsmuts footer link */
 
 // this is the fallback for header menu
-function bones_main_nav_fallback() {
+function kodsmuts_main_nav_fallback() {
 	wp_page_menu( array(
 		'show_home' => true,
     	'menu_class' => 'nav footer-nav clearfix',      // adding custom nav class
@@ -275,7 +260,7 @@ function bones_main_nav_fallback() {
 }
 
 // this is the fallback for footer menu
-function bones_footer_links_fallback() {
+function kodsmuts_footer_links_fallback() {
 	/* you can put a default here if you like */
 }
 
@@ -283,9 +268,9 @@ function bones_footer_links_fallback() {
 RELATED POSTS FUNCTION
 *********************/
 
-// Related Posts Function (call using bones_related_posts(); )
-function bones_related_posts() {
-	echo '<ul id="bones-related-posts">';
+// Related Posts Function (call using kodsmuts_related_posts(); )
+function kodsmuts_related_posts() {
+	echo '<ul id="kodsmuts-related-posts">';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
 	if($tags) {
@@ -306,14 +291,14 @@ function bones_related_posts() {
 	}
 	wp_reset_query();
 	echo '</ul>';
-} /* end bones related posts function */
+} /* end kodsmuts related posts function */
 
 /*********************
 PAGE NAVI
 *********************/
 
 // Numeric Page Navi (built into the theme by default)
-function bones_page_navi($before = '', $after = '') {
+function kodsmuts_page_navi($before = '', $after = '') {
 	global $wpdb, $wp_query;
 	$request = $wp_query->request;
 	$posts_per_page = intval(get_query_var('posts_per_page'));
@@ -343,7 +328,7 @@ function bones_page_navi($before = '', $after = '') {
 	if($start_page <= 0) {
 		$start_page = 1;
 	}
-	echo $before.'<nav class="page-navigation"><ol class="bones_page_navi clearfix">'."";
+	echo $before.'<nav class="page-navigation"><ol class="kodsmuts_page_navi clearfix">'."";
 	if ($start_page >= 2 && $pages_to_show < $max_page) {
 		$first_page_text = "First";
 		echo '<li class="bpn-first-page-link"><a href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
@@ -373,12 +358,12 @@ RANDOM CLEANUP ITEMS
 *********************/
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-function bones_filter_ptags_on_images($content){
+function kodsmuts_filter_ptags_on_images($content){
    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
 // This removes the annoying […] to a Read More link
-function bones_excerpt_more($more) {
+function kodsmuts_excerpt_more($more) {
 	global $post;
 	// edit here if you like
 	return '...  <a href="'. get_permalink($post->ID) . '" title="Read '.get_the_title($post->ID).'">Read more &raquo;</a>';

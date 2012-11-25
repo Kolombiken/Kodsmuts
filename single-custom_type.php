@@ -29,7 +29,7 @@ single-bookmarks.php
 							
 							    <h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
 							
-							    <p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php echo get_the_term_list( get_the_ID(), 'custom_cat', "" ) ?>.</p>
+							    <p class="byline vcard"><?php _e("Posted", "kodsmutstheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "kodsmutstheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "kodsmutstheme"); ?> <?php echo get_the_term_list( get_the_ID(), 'custom_cat', "" ) ?>.</p>
 						
 						    </header> <!-- end article header -->
 					
@@ -55,13 +55,13 @@ single-bookmarks.php
 					
         					<article id="post-not-found" class="hentry clearfix">
         						<header class="article-header">
-        							<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
+        							<h1><?php _e("Oops, Post Not Found!", "kodsmutstheme"); ?></h1>
         						</header>
         						<section class="entry-content">
-        							<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+        							<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "kodsmutstheme"); ?></p>
         						</section>
         						<footer class="article-footer">
-        						    <p><?php _e("This is the error message in the single-custom_type.php template.", "bonestheme"); ?></p>
+        						    <p><?php _e("This is the error message in the single-custom_type.php template.", "kodsmutstheme"); ?></p>
         						</footer>
         					</article>
 					

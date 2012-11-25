@@ -8,12 +8,12 @@
 				
 					    <?php if (is_category()) { ?>
 						    <h1 class="archive-title h2">
-							    <span><?php _e("Posts Categorized:", "bonestheme"); ?></span> <?php single_cat_title(); ?>
+							    <span><?php _e("Posts Categorized:", "kodsmutstheme"); ?></span> <?php single_cat_title(); ?>
 					    	</h1>
 					    
 					    <?php } elseif (is_tag()) { ?> 
 						    <h1 class="archive-title h2">
-							    <span><?php _e("Posts Tagged:", "bonestheme"); ?></span> <?php single_tag_title(); ?>
+							    <span><?php _e("Posts Tagged:", "kodsmutstheme"); ?></span> <?php single_tag_title(); ?>
 						    </h1>
 					    
 					    <?php } elseif (is_author()) { 
@@ -22,22 +22,22 @@
 					    ?>
 						    <h1 class="archive-title h2">
 
-						    	<span><?php _e("Posts By:", "bonestheme"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
+						    	<span><?php _e("Posts By:", "kodsmutstheme"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
 
 						    </h1>
 					    <?php } elseif (is_day()) { ?>
 						    <h1 class="archive-title h2">
-	    						<span><?php _e("Daily Archives:", "bonestheme"); ?></span> <?php the_time('l, F j, Y'); ?>
+	    						<span><?php _e("Daily Archives:", "kodsmutstheme"); ?></span> <?php the_time('l, F j, Y'); ?>
 						    </h1>
 		
 		    			<?php } elseif (is_month()) { ?>
 			    		    <h1 class="archive-title h2">
-				    	    	<span><?php _e("Monthly Archives:", "bonestheme"); ?></span> <?php the_time('F Y'); ?>
+				    	    	<span><?php _e("Monthly Archives:", "kodsmutstheme"); ?></span> <?php the_time('F Y'); ?>
 					        </h1>
 					
 					    <?php } elseif (is_year()) { ?>
 					        <h1 class="archive-title h2">
-					    	    <span><?php _e("Yearly Archives:", "bonestheme"); ?></span> <?php the_time('Y'); ?>
+					    	    <span><?php _e("Yearly Archives:", "kodsmutstheme"); ?></span> <?php the_time('Y'); ?>
 					        </h1>
 					    <?php } ?>
 
@@ -49,13 +49,13 @@
 							
 							    <h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 							
-							    <p class="byline vcard"><?php _e("Posted", "bonestheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>
+							    <p class="byline vcard"><?php _e("Posted", "kodsmutstheme"); ?> <time class="updated" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "kodsmutstheme"); ?> <span class="author"><?php the_author_posts_link(); ?></span> <span class="amp">&</span> <?php _e("filed under", "kodsmutstheme"); ?> <?php the_category(', '); ?>.</p>
 						
 						    </header> <!-- end article header -->
 					
 						    <section class="entry-content clearfix">
 						
-							    <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
+							    <?php the_post_thumbnail( 'kodsmuts-thumb-300' ); ?>
 						
 							    <?php the_excerpt(); ?>
 					
@@ -69,13 +69,13 @@
 					
 					    <?php endwhile; ?>	
 					
-					        <?php if (function_exists('bones_page_navi')) { ?>
-						        <?php bones_page_navi(); ?>
+					        <?php if (function_exists('kodsmuts_page_navi')) { ?>
+						        <?php kodsmuts_page_navi(); ?>
 					        <?php } else { ?>
 						        <nav class="wp-prev-next">
 							        <ul class="clearfix">
-								        <li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "bonestheme")) ?></li>
-								        <li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "bonestheme")) ?></li>
+								        <li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "kodsmutstheme")) ?></li>
+								        <li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "kodsmutstheme")) ?></li>
 							        </ul>
 					    	    </nav>
 					        <?php } ?>
@@ -84,13 +84,13 @@
 					
     					    <article id="post-not-found" class="hentry clearfix">
     						    <header class="article-header">
-    							    <h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
+    							    <h1><?php _e("Oops, Post Not Found!", "kodsmutstheme"); ?></h1>
     					    	</header>
     						    <section class="entry-content">
-    							    <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+    							    <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "kodsmutstheme"); ?></p>
         						</section>
     	    					<footer class="article-footer">
-    		    				    <p><?php _e("This is the error message in the archive.php template.", "bonestheme"); ?></p>
+    		    				    <p><?php _e("This is the error message in the archive.php template.", "kodsmutstheme"); ?></p>
     			    			</footer>
     				    	</article>
 					

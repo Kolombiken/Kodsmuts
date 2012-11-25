@@ -59,10 +59,10 @@ http://0to255.com/
 @black:             #000;
 @white:             #fff;
 
-@bones-pink:        #f01d4f;
-@bones-blue:        #1990db;
+@kodsmuts-pink:        #f01d4f;
+@kodsmuts-blue:        #1990db;
 
-@link-color:        @bones-pink;
+@link-color:        @kodsmuts-pink;
 @link-hover:        darken(@link-color, 9%);
 
 /*
@@ -209,9 +209,9 @@ BUTTONS
 *********************/
 
 .button, .button:visited {
-	border: 1px solid darken(@bones-pink, 13%);
-	border-top-color: darken(@bones-pink, 7%);
-	border-left-color: darken(@bones-pink, 7%);
+	border: 1px solid darken(@kodsmuts-pink, 13%);
+	border-top-color: darken(@kodsmuts-pink, 7%);
+	border-left-color: darken(@kodsmuts-pink, 7%);
 	padding: 4px 12px;
 	color: @white;
 	display: inline-block;
@@ -224,33 +224,33 @@ BUTTONS
 	line-height: 21px;
 	.transition();
 	.border-radius(4px);
-	.css-gradient(@bones-pink,darken(@bones-pink, 5%));
+	.css-gradient(@kodsmuts-pink,darken(@kodsmuts-pink, 5%));
 
 	&:hover, &:focus {
 		color: @white;
-	  border: 1px solid darken(@bones-pink, 13%);
-	  border-top-color: darken(@bones-pink, 20%);
-	 	border-left-color: darken(@bones-pink, 20%);
-		.css-gradient(darken(@bones-pink, 5%),darken(@bones-pink, 10%));
+	  border: 1px solid darken(@kodsmuts-pink, 13%);
+	  border-top-color: darken(@kodsmuts-pink, 20%);
+	 	border-left-color: darken(@kodsmuts-pink, 20%);
+		.css-gradient(darken(@kodsmuts-pink, 5%),darken(@kodsmuts-pink, 10%));
 	}
 	
 	&:active {
-		.css-gradient(darken(@bones-pink, 5%),@bones-pink);
+		.css-gradient(darken(@kodsmuts-pink, 5%),@kodsmuts-pink);
 	}	
 }
 
 .blue-button, .blue-button:visited {
-	border-color: darken(@bones-blue, 10%);
-	text-shadow: 0 1px 1px darken(@bones-blue, 10%);
-	.css-gradient( @bones-blue, darken(@bones-blue, 5%) );
-	-webkit-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-       -moz-box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
-   	        box-shadow: inset 0 0 3px lighten(@bones-blue, 16%);
+	border-color: darken(@kodsmuts-blue, 10%);
+	text-shadow: 0 1px 1px darken(@kodsmuts-blue, 10%);
+	.css-gradient( @kodsmuts-blue, darken(@kodsmuts-blue, 5%) );
+	-webkit-box-shadow: inset 0 0 3px lighten(@kodsmuts-blue, 16%);
+       -moz-box-shadow: inset 0 0 3px lighten(@kodsmuts-blue, 16%);
+   	        box-shadow: inset 0 0 3px lighten(@kodsmuts-blue, 16%);
 	&:hover, &:focus {
-		border-color: darken(@bones-blue, 15%);
-		.css-gradient( darken(@bones-blue, 4%), darken(@bones-blue, 10%) );
+		border-color: darken(@kodsmuts-blue, 15%);
+		.css-gradient( darken(@kodsmuts-blue, 4%), darken(@kodsmuts-blue, 10%) );
 	}
 	&:active {
-		.css-gradient( darken(@bones-blue, 5%), @bones-blue );
+		.css-gradient( darken(@kodsmuts-blue, 5%), @kodsmuts-blue );
 	}
 }

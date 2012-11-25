@@ -45,6 +45,9 @@
 		
 		<!-- wordpress head functions -->
 		<?php wp_head(); ?>
+		<!--[if lt IE 9]>
+			<?php wp_print_scripts(array('kodsmuts-html5shiv')); ?>
+		<![endif]-->
 		<!-- end of wordpress head -->
 			
 		<!-- drop Google Analytics Here -->
@@ -68,7 +71,7 @@
 					
 					
 					<nav role="navigation">
-						<?php bones_main_nav(); ?>
+						<?php kodsmuts_main_nav(); ?>
 					</nav>
 				
 				</div> <!-- end #inner-header -->

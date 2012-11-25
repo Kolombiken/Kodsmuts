@@ -1,7 +1,7 @@
 <?php
 /*
 Author: Eddie Machado
-URL: htp://themble.com/bones/
+URL: htp://themble.com/kodsmuts/
 
 This is where you can drop your custom functions or
 just edit things like thumbnail sizes, header images, 
@@ -11,7 +11,7 @@ sidebars, comments, ect.
 /************* INCLUDE NEEDED FILES ***************/
 
 /*
-1. library/bones.php
+1. library/kodsmuts.php
     - head cleanup (remove rsd, uri links, junk css, ect)
 	- enqueueing scripts & styles
 	- theme support functions
@@ -23,7 +23,7 @@ sidebars, comments, ect.
 	- custom google+ integration
 	- adding custom fields to user profiles
 */
-require_once('library/bones.php'); // if you remove this, bones will break
+require_once('library/kodsmuts.php'); // if you remove this, kodsmuts will break
 /*
 2. library/custom-post-type.php
     - an example custom post type
@@ -48,8 +48,8 @@ require_once('library/custom-post-type.php'); // you can disable this if you lik
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'kodsmuts-thumb-600', 600, 150, true );
+add_image_size( 'kodsmuts-thumb-300', 300, 100, true );
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
@@ -62,9 +62,9 @@ inside the thumbnail function.
 
 For example, to call the 300 x 300 sized image, 
 we would use the function:
-<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
+<?php the_post_thumbnail( 'kodsmuts-thumb-300' ); ?>
 for the 600 x 100 image:
-<?php the_post_thumbnail( 'bones-thumb-600' ); ?>
+<?php the_post_thumbnail( 'kodsmuts-thumb-600' ); ?>
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
@@ -73,7 +73,7 @@ you like. Enjoy!
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
-function bones_register_sidebars() {
+function kodsmuts_register_sidebars() {
     register_sidebar(array(
     	'id' => 'sidebar1',
     	'name' => 'Sidebar 1',
@@ -113,7 +113,7 @@ function bones_register_sidebars() {
 /************* COMMENT LAYOUT *********************/
 		
 // Comment Layout
-function bones_comments($comment, $args, $depth) {
+function kodsmuts_comments($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class(); ?>>
 		<article id="comment-<?php comment_ID(); ?>" class="clearfix">
@@ -133,11 +133,11 @@ function bones_comments($comment, $args, $depth) {
 			    <!-- end custom gravatar call -->
 				<?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time('F jS, Y'); ?> </a></time>
-				<?php edit_comment_link(__('(Edit)', 'bonestheme'),'  ','') ?>
+				<?php edit_comment_link(__('(Edit)', 'kodsmutstheme'),'  ','') ?>
 			</header>
 			<?php if ($comment->comment_approved == '0') : ?>
        			<div class="alert info">
-          			<p><?php _e('Your comment is awaiting moderation.', 'bonestheme') ?></p>
+          			<p><?php _e('Your comment is awaiting moderation.', 'kodsmutstheme') ?></p>
           		</div>
 			<?php endif; ?>
 			<section class="comment_content clearfix">
@@ -152,10 +152,10 @@ function bones_comments($comment, $args, $depth) {
 /************* SEARCH FORM LAYOUT *****************/
 
 // Search Form
-function bones_wpsearch($form) {
+function kodsmuts_wpsearch($form) {
     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <label class="screen-reader-text" for="s">' . __('Search for:', 'bonestheme') . '</label>
-    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','bonestheme').'" />
+    <label class="screen-reader-text" for="s">' . __('Search for:', 'kodsmutstheme') . '</label>
+    <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Search the Site...','kodsmutstheme').'" />
     <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
     </form>';
     return $form;

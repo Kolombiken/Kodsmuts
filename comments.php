@@ -1,6 +1,6 @@
 <?php
 /*
-The comments page for Bones
+The comments page for kodsmuts
 */
 
 // Do not delete these lines
@@ -9,7 +9,7 @@ The comments page for Bones
 
   if ( post_password_required() ) { ?>
   	<div class="alert help">
-    	<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "bonestheme"); ?></p>
+    	<p class="nocomments"><?php _e("This post is password protected. Enter the password to view comments.", "kodsmutstheme"); ?></p>
   	</div>
   <?php
     return;
@@ -30,7 +30,7 @@ The comments page for Bones
 	</nav>
 	
 	<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=bones_comments'); ?>
+		<?php wp_list_comments('type=comment&callback=kodsmuts_comments'); ?>
 	</ol>
 	
 	<nav id="comment-nav">
@@ -48,7 +48,7 @@ The comments page for Bones
 	<?php else : // comments are closed ?>
 	
 	<!-- If comments are closed. -->
-	<!--p class="nocomments"><?php _e("Comments are closed.", "bonestheme"); ?></p-->
+	<!--p class="nocomments"><?php _e("Comments are closed.", "kodsmutstheme"); ?></p-->
 
 	<?php endif; ?>
 
@@ -59,7 +59,7 @@ The comments page for Bones
 
 <section id="respond" class="respond-form">
 
-	<h3 id="comment-form-title" class="h2"><?php comment_form_title( __('Leave a Reply', 'bonestheme'), __('Leave a Reply to %s', 'bonestheme' )); ?></h3>
+	<h3 id="comment-form-title" class="h2"><?php comment_form_title( __('Leave a Reply', 'kodsmutstheme'), __('Leave a Reply to %s', 'kodsmutstheme' )); ?></h3>
 
 	<div id="cancel-comment-reply">
 		<p class="small"><?php cancel_comment_reply_link(); ?></p>
@@ -75,41 +75,41 @@ The comments page for Bones
 
 	<?php if ( is_user_logged_in() ) : ?>
 
-	<p class="comments-logged-in-as"><?php _e("Logged in as", "bonestheme"); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e("Log out of this account", "bonestheme"); ?>"><?php _e("Log out", "bonestheme"); ?> <?php _e("&raquo;", "bonestheme"); ?></a></p>
+	<p class="comments-logged-in-as"><?php _e("Logged in as", "kodsmutstheme"); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php _e("Log out of this account", "kodsmutstheme"); ?>"><?php _e("Log out", "kodsmutstheme"); ?> <?php _e("&raquo;", "kodsmutstheme"); ?></a></p>
 
 	<?php else : ?>
 	
 	<ul id="comment-form-elements" class="clearfix">
 		
 		<li>
-		  <label for="author"><?php _e("Name", "bonestheme"); ?> <?php if ($req) _e("(required)"); ?></label>
-		  <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e('Your Name*', 'bonestheme'); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
+		  <label for="author"><?php _e("Name", "kodsmutstheme"); ?> <?php if ($req) _e("(required)"); ?></label>
+		  <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" placeholder="<?php _e('Your Name*', 'kodsmutstheme'); ?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
 		</li>
 		
 		<li>
-		  <label for="email"><?php _e("Mail", "bonestheme"); ?> <?php if ($req) _e("(required)"); ?></label>
-		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Your E-Mail*', 'bonestheme'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-		  <small><?php _e("(will not be published)", "bonestheme"); ?></small>
+		  <label for="email"><?php _e("Mail", "kodsmutstheme"); ?> <?php if ($req) _e("(required)"); ?></label>
+		  <input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" placeholder="<?php _e('Your E-Mail*', 'kodsmutstheme'); ?>" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
+		  <small><?php _e("(will not be published)", "kodsmutstheme"); ?></small>
 		</li>
 		
 		<li>
-		  <label for="url"><?php _e("Website", "bonestheme"); ?></label>
-		  <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e('Got a website?', 'bonestheme'); ?>" tabindex="3" />
+		  <label for="url"><?php _e("Website", "kodsmutstheme"); ?></label>
+		  <input type="url" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" placeholder="<?php _e('Got a website?', 'kodsmutstheme'); ?>" tabindex="3" />
 		</li>
 		
 	</ul>
 
 	<?php endif; ?>
 	
-	<p><textarea name="comment" id="comment" placeholder="<?php _e('Your Comment here...', 'bonestheme'); ?>" tabindex="4"></textarea></p>
+	<p><textarea name="comment" id="comment" placeholder="<?php _e('Your Comment here...', 'kodsmutstheme'); ?>" tabindex="4"></textarea></p>
 	
 	<p>
-	  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e('Submit', 'bonestheme'); ?>" />
+	  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e('Submit', 'kodsmutstheme'); ?>" />
 	  <?php comment_id_fields(); ?>
 	</p>
 	
 	<div class="alert info">
-		<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e('You can use these tags', 'bonestheme'); ?>: <code><?php echo allowed_tags(); ?></code></p>
+		<p id="allowed_tags" class="small"><strong>XHTML:</strong> <?php _e('You can use these tags', 'kodsmutstheme'); ?>: <code><?php echo allowed_tags(); ?></code></p>
 	</div>
 	
 	<?php do_action('comment_form', $post->ID); ?>
