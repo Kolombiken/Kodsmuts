@@ -80,7 +80,7 @@ function kodsmuts_register_sidebars() {
     	'description' => 'The first (primary) sidebar.',
     	'before_widget' => '<div id="%1$s" class="widget %2$s">',
     	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
+    	'before_title' => '<h4>',
     	'after_title' => '</h4>',
     ));
     
@@ -98,7 +98,7 @@ function kodsmuts_register_sidebars() {
     	'description' => 'The second (secondary) sidebar.',
     	'before_widget' => '<div id="%1$s" class="widget %2$s">',
     	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
+    	'before_title' => '<h4>',
     	'after_title' => '</h4>',
     ));
     

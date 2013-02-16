@@ -120,7 +120,7 @@ you like.
 
 // Custom Backend Footer
 function kodsmuts_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/kodsmuts" target="_blank">kodsmuts</a>.';
+	echo '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/bones" target="_blank">kodsmuts</a>.';
 }
 
 // adding it to the admin area
