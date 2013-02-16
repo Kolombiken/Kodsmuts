@@ -46,17 +46,16 @@
 		
 	</head>
 	<body <?php body_class(); ?>>
-		<div id="container">
 			<header class="header" role="banner">
-				<div id="inner-header" class="wrap clearfix">
-					<h1 id="logo"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
-					
-					<!-- if you'd like to use the site description you can un-comment it below -->
+					<?php if ( $site_description && ( is_home() || is_front_page() ) ){ ?>
+						<h1><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></h1>
+					<?php }else{ ?>
+						<a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a>
+					<?php } ?>
 					<p><?php  bloginfo('description'); ?></p>
 					
 					
 					<nav role="navigation">
 						<?php kodsmuts_main_nav(); ?>
 					</nav>
-				</div> <!-- end #inner-header -->
 			</header> <!-- end header -->
